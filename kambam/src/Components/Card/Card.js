@@ -17,7 +17,7 @@ const CardText = styled.div`
 export default function Card({title, text}) {
     //ESTADOS QUE ESSE CARD VAI TER
     //Modo
-    //Titulo 
+    //Titulo
     //Texto
 
     return (

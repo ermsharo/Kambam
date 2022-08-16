@@ -1,6 +1,10 @@
 
+import { axios } from "axios";
 import Session from '../Session/Session'
 import styled from 'styled-components'
+import { authenticate } from "../../Services/kambamServices";
+import { useState, useEffect } from "react";
+import api from "../../Services/api";
 
 const SessionArea = styled.div`
 display: grid;
@@ -22,14 +26,35 @@ const SessionBox = styled.div`
 
 
 export default function Board() {
-  return (
-    <SessionArea>
-       <Session title = "Novo"/>
-      <Session title = "To Do"/>
-       <Session title = "Doing"/>
-       <Session title = "Done"/>
-    </SessionArea>
-  );
+
+    const [post, setPost] = useState(null);
+    const [token, setToken] = useState(null);
+
+
+    useEffect(() => {
+        api
+          .get()
+          .then((response) => setPost(response.data))
+          .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+          });
+      }, []);
+
+    if (!post) return null;
+
+    return (
+        <>
+            <div>API BACKGROUND <br />
+
+                <div>{JSON.stringify(post)}</div>
+            </div>
+            <SessionArea>
+                <Session title="Novo" />
+                <Session title="To Do" />
+                <Session title="Doing" />
+                <Session title="Done" />
+            </SessionArea></>
+    );
 }
 
 
