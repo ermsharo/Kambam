@@ -9,6 +9,9 @@ column-gap: 32px;
 width: 80vw;
 margin: auto;
 border: 2px solid blue;
+font-family: 'River', sans-serif;
+text-align: center;
+padding-top: 32px;
 
 `
 

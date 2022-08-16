@@ -1,11 +1,30 @@
+import styled from 'styled-components';
 
+const CardBox = styled.div`
+border: 2px solid green;
+padding: 16px;
 
-export default function Card() {
+`;
+
+const CardTitle = styled.h3`
+
+`;
+
+const CardText = styled.div`
+
+`;
+
+export default function Card({title, text}) {
+    //ESTADOS QUE ESSE CARD VAI TER
+    //Modo
+    //Titulo 
+    //Texto
+
     return (
-      <div className="App">
-      <header></header>
-      Card Example
-      </div>
+      <CardBox>
+<CardTitle>{title}</CardTitle>
+<CardText>{text}</CardText>
+      </CardBox>
     );
   }
   
