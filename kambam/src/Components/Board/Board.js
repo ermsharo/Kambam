@@ -52,7 +52,7 @@ export default function Board() {
 
 
 
-  
+
 
     const findCardById = (cardId) => {
         //Take a card id and delete

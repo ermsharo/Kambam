@@ -12,25 +12,25 @@ const authApi = axios.create({
     baseURL: AUTH_URL,
 });
 
-const getToken = async ()=>{
+const getToken = async () => {
     authApi
-    .post("/",
-        CREDENTIALS
-)
-    .then((response) => {
-        console.log(response.data)
-        return (`Bearer ${response.data}`)
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+        .post("/",
+            CREDENTIALS
+        )
+        .then((response) => {
+            console.log(response.data)
+            return (`Bearer ${response.data}`)
+        })
+        .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
 }
 
-const api =  axios.create({
+const api = axios.create({
     baseURL: CARD,
     headers: {
-     'Authorization': getToken()
-      }
+        'Authorization': getToken()
+    }
 });
 
 

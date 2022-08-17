@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { HiPencilAlt, HiPlusCircle, HiOutlineTrash } from "react-icons/hi";
-import { moveCardToSession, verifyElement, deleteCardById } from "../../Utils/boardOps";
+import { moveCardToSession, deleteCardById } from "../../Utils/boardOps";
 
 
 const CardBox = styled.div`

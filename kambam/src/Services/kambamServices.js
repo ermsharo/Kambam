@@ -8,10 +8,9 @@ const CARD = `${URL}/card`;
 const CREDENTIALS = { login: 'letscode', senha: 'lets@123' };
 
 
-export  const authenticate = () => {
- 
 
-}
+
+
 
 const createCard = () => {
 
