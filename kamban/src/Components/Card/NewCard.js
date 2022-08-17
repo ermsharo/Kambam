@@ -112,23 +112,31 @@ padding: 8px;
 
 export default function NewCard() {
 
+  const [newTextTitle, setNewTextTitle] = useState("");
+  const [newTextBody, setNewTextBody] = useState("");
 
+  return (
+    <CardBox>
+      <CardHeader><NewTitleArea placeholder='Titulo'
 
-    return (
-        <CardBox>
-            <CardHeader><NewTitleArea placeholder='Titulo'></NewTitleArea>
+        onChange={evt => setNewTextTitle(evt.target.value)}
+        value={newTextTitle}></NewTitleArea>
 
-            </CardHeader>
+      </CardHeader>
 
-            <CardText><NewTextArea id="story" name="story"
-                rows="5" cols="33">
+      <CardText><NewTextArea id="story" name="story"
+        rows="5" cols="33"
+        onChange={evt => setNewTextBody(evt.target.value)}
+        value={newTextBody}
+        placeholder = "Coloque seu texto aqui"
+      >
 
-            </NewTextArea></CardText>
+      </NewTextArea></CardText>
 
-            <CardOptions>
-                <CardIcons><HiPlusCircle /></CardIcons>
+      <CardOptions>
+        <CardIcons><HiPlusCircle /></CardIcons>
 
-            </CardOptions>
-        </CardBox>
-    );
+      </CardOptions>
+    </CardBox>
+  );
 }

@@ -37,7 +37,20 @@ background-image: url("https://www.transparenttextures.com/patterns/concrete-wal
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 `
 
+
+
 export default function Board() {
+
+
+    // const { getCards, updateCard, removeCard, addCard } = useCardService();
+
+    const changeList = () => {
+
+    }
+    const updateList = () => {
+
+    }
+
 
     const separateObjects = (cardsData) => {
 
@@ -57,7 +70,7 @@ export default function Board() {
         <KambamBox>
             <AppTitle>Kamban</AppTitle>
             <SessionArea>
-                <NewCardSession/>
+                <NewCardSession />
                 <Session title="To Do" session="ToDo" cards={Cards} setCards={setCards} />
                 <Session title="Doing" session="Doing" cards={Cards} setCards={setCards} />
                 <Session title="Done" session="Done" cards={Cards} setCards={setCards} />

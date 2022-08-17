@@ -130,17 +130,22 @@ padding: 8px;
 
 export default function EditCard({ title, text, cards, cardId, setCards, session, setIsEditing }) {
 
+  const [editedTextTitle, setEditedTextTitle] = useState(title);
+  const [editedTextBody, setEditedTextBody] = useState(text);
 
   return (
     <CardBox>
       <CardHeader>
-        <NewTitleArea placeholder='Titulo' value={title}></NewTitleArea>
+        <NewTitleArea placeholder='Titulo' onChange={evt => setEditedTextTitle(evt.target.value)}
+          value={editedTextTitle}></NewTitleArea>
       </CardHeader>
       <CardText>
         <NewTextArea
-          value={text}
           id="story" name="story"
-          rows="5" cols="33">
+          rows="5" cols="33"
+          onChange={evt => setEditedTextBody(evt.target.value)}
+          value={editedTextBody}
+        >
 
         </NewTextArea>
       </CardText>
