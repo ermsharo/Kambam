@@ -1,6 +1,0 @@
-Implementar o metodo de atualização e as requisições de api[] 
-Implementar o eslint[x]
-Implementar os metodos da api[]
-Implementar as mecânicas de uso da api[]
-Implementar os botões dos cards[]
-Estilizar os cards[]
