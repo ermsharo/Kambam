@@ -4,16 +4,15 @@
 
 ## Funcionalidades quais foram planejadas para ser implementadas
 
-Criação das estruturas de componentes para exibição do kamban[x]
-Implementação da rotina de criação de um novo card[x]
-Integração do eslint[x]
-Transição dos cards entre as sessões []
-Remoção dos cards[]
-Renderização do markdown dentro dos textos[]
-Reescrita das requisições usando axios[]
-Implementação dos testes unitários com jest[]
-Dockerizar o backend e o frontend da aplicação[]
-
+ - Criação das estruturas de componentes para exibição do kamban[x]
+ -  Implementação da rotina de criação de um novo card[x] 
+ -  Integração do   eslint[x]
+ - Transição dos cards entre as sessões [ ]
+ -  Remoção dos cards[ ]
+ - Renderização do markdown dentro dos textos[ ] 
+ - Reescrita das    requisições usando axios[ ]
+ - Implementação dos testes unitários com    jest[ ]
+ - Dockerizar o backend e o frontend da aplicação []
 
 ## Adendos
 
@@ -34,4 +33,13 @@ backend
 
     npm i
     npm start 
+
+
+
+    
+
+
+
+
+
 
