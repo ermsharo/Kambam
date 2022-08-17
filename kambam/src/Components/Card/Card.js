@@ -1,32 +1,112 @@
 import styled from 'styled-components';
+import { FiArrowLeftCircle , FiArrowRightCircle } from "react-icons/fi";
+import { HiPencilAlt,HiPlusCircle, HiOutlineTrash} from "react-icons/hi";
 
 const CardBox = styled.div`
-border: 2px solid green;
-padding: 16px;
+  position: relative;
+  margin: 40px auto;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  background: #feff9c;
+  border-radius: 2px;
 
+  &:before{
+    content: '';
+  position: absolute;
+  bottom: 10px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0,0,0,.7);
+  z-index: -1;
+  transition: all .3s ease-in-out;
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+  }
+  &:after {
+    content: '';
+  position: absolute;
+    left: 5px;
+  }
+  &:hover:after{
+    box-shadow: 0 2px 14px rgba(0,0,0,.4);
+    right: 5px;
+  }
 `;
 
 const CardTitle = styled.h3`
+grid-column: 2/4;
+display: flex ;
+flex-direction: column;
+justify-content: center;
+font-size: 28px;
+`;
+
+const CardHeader = styled.div`
+display: grid;
+font-family: 'Roza', sans-serif;
+text-align: center;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+`;
+
+const CardEditBox = styled.div`
+display: flex ;
+flex-direction: column;
+justify-content: center;
+padding: 16px;
+font-size: 24px;
+cursor: pointer;
+
 
 `;
+
 
 const CardText = styled.div`
+font-family: 'Roza', sans-serif;
+font-size: 24px;
+text-align: justify;
+padding: 10%;
+
 
 `;
 
-export default function Card({title, text}) {
-    //ESTADOS QUE ESSE CARD VAI TER
-    //Modo
-    //Titulo
-    //Texto
+const CardOptions = styled.div`
+display: flex ;
+justify-content: space-between;
+font-size: 24px;
+padding: 5% 10%;
 
-    return (
-      <CardBox>
-<CardTitle>{title}</CardTitle>
-<CardText>{text}</CardText>
-      </CardBox>
-    );
-  }
-  
-  
-  
+
+`;
+
+const CardIcons = styled.div`
+font-size: 24px;
+cursor: pointer;
+
+
+`;
+
+export default function Card({ title, text }) {
+  //ESTADOS QUE ESSE CARD VAI TER
+  //Modo
+  //Titulo
+  //Texto
+
+  return (
+    <CardBox>
+      <CardHeader><CardTitle>{title}</CardTitle>
+        <CardEditBox><HiPencilAlt/></CardEditBox>
+      </CardHeader>
+
+      <CardText>{text}</CardText>
+
+<CardOptions>
+<CardIcons><FiArrowLeftCircle/></CardIcons>
+<CardIcons><HiOutlineTrash/></CardIcons>
+<CardIcons><FiArrowRightCircle/></CardIcons>
+</CardOptions>
+    </CardBox>
+  );
+}
+
+

@@ -7,16 +7,18 @@ import { useState, useEffect } from "react";
 import api from "../../Services/api";
 import { GeneticData } from "./genericData";
 
+
 const SessionArea = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr ;
-column-gap: 32px;
-width: 80vw;
+column-gap: 64px;
+width: 60vw;
 margin: auto;
-border: 2px solid blue;
+
 font-family: 'River', sans-serif;
 text-align: center;
 padding-top: 32px;
+
 
 `
 
@@ -24,7 +26,11 @@ const SessionBox = styled.div`
 
 `
 
-
+const KambamBox = styled.div`
+background-color: #313831;
+background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+`
 
 export default function Board() {
 
@@ -70,16 +76,12 @@ export default function Board() {
 
     //deleteCardById()
     return (
-        <>
-            <div>API BACKGROUND <br />
-
-            </div>
+        <KambamBox>
             <SessionArea>
-
                 <Session title="To Do" cards={Cards.ToDo} />
                 <Session title="Doing" cards={Cards.Doing} />
                 <Session title="Done" cards={Cards.Done} />
-            </SessionArea></>
+            </SessionArea></KambamBox>
     );
 }
 
