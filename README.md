@@ -23,7 +23,6 @@ Sobre as requisições, apesar delas terem um comportamento diferente na hora do
 
 ## Como executar aplicação
 
-backend
     dentro da pasta BACK executar:
     
     npm i
