@@ -18,14 +18,14 @@ const CardsBox = styled.div`
 
 
 
-export default function NewCardSession({ title, cards, session, setCards }) {
+export default function NewCardSession({ createNewCard }) {
 
 
 
     return (<div>
         <SessionText>New</SessionText>
         <CardsBox>
-            <NewCard />
+            <NewCard createNewCard={createNewCard} />
 
         </CardsBox>
 

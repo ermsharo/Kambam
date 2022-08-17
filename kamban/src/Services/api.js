@@ -7,7 +7,6 @@ const CARD = `${URL}/cards`;
 const CREDENTIALS = { login: 'letscode', senha: 'lets@123' };
 
 
-
 const authApi = axios.create({
     baseURL: AUTH_URL,
 });

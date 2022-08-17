@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { HiPlusCircle } from "react-icons/hi";
 import { useState } from "react";
 
+
 const CardBox = styled.div`
   position: relative;
   margin: 40px auto;
@@ -110,7 +111,7 @@ padding: 8px;
 `;
 
 
-export default function NewCard() {
+export default function NewCard({createNewCard}) {
 
   const [newTextTitle, setNewTextTitle] = useState("");
   const [newTextBody, setNewTextBody] = useState("");
@@ -134,7 +135,11 @@ export default function NewCard() {
       </NewTextArea></CardText>
 
       <CardOptions>
-        <CardIcons><HiPlusCircle /></CardIcons>
+        <CardIcons><HiPlusCircle onClick = {
+          ()=>{
+            createNewCard(newTextTitle, newTextBody)
+          }
+        }/></CardIcons>
 
       </CardOptions>
     </CardBox>

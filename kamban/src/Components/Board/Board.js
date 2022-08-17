@@ -1,10 +1,10 @@
 
 import Session from '../Session/Session'
 import styled from 'styled-components'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GeneticData } from "./genericData";
 import NewCardSession from "../Session/NewCardSession";
-
+import cardService from "../../Services/cardServices";
 
 const SessionArea = styled.div`
 display: grid;
@@ -41,15 +41,37 @@ background-image: url("https://www.transparenttextures.com/patterns/concrete-wal
 
 export default function Board() {
 
+    const { getCards, updateCard, removeCard, addCard } = cardService();
 
-    // const { getCards, updateCard, removeCard, addCard } = useCardService();
+
+    const createCardTeamplate = (session, title, text) => {
+
+        return {
+            titulo: title,
+            conteudo: text,
+            lista: session
+        }
+    }
 
     const changeList = () => {
 
     }
-    const updateList = () => {
+    const updateList = (cardId, newCardInfo) => {
+
 
     }
+
+    const addCardSession = (session, title, text) => {
+        addCard(createCardTeamplate(session, title, text))
+    }
+
+    const createNewCard = (title, text) => {
+        addCard(createCardTeamplate("ToDo", title, text))
+    }
+
+
+
+
 
 
     const separateObjects = (cardsData) => {
@@ -66,14 +88,47 @@ export default function Board() {
 
     const [Cards, setCards] = useState(separateObjects(GeneticData));
 
+
+
+
+    useEffect(() => {
+        (async () => {
+            const cs = await getCards();
+            setCards(cs);
+        })();
+    }, []);
+
+    if (!Cards) return <>loading</>
     return (
         <KambamBox>
             <AppTitle>Kamban</AppTitle>
             <SessionArea>
-                <NewCardSession />
-                <Session title="To Do" session="ToDo" cards={Cards} setCards={setCards} />
-                <Session title="Doing" session="Doing" cards={Cards} setCards={setCards} />
-                <Session title="Done" session="Done" cards={Cards} setCards={setCards} />
+                <NewCardSession createNewCard={createNewCard} />
+                <Session
+                    title="To Do"
+                    session="ToDo" cards={Cards}
+                    setCards={setCards}
+                    addCard={addCard}
+                    updateCard={updateCard}
+                    removeCard={removeCard} />
+
+                <Session
+                    title="Doing"
+                    session="Doing"
+                    cards={Cards}
+                    setCards={setCards}
+                    addCard={addCard}
+                    updateCard={updateCard}
+                    removeCard={removeCard} />
+
+                <Session
+                    title="Done"
+                    session="Done"
+                    cards={Cards}
+                    setCards={setCards}
+                    addCard={addCard}
+                    updateCard={updateCard}
+                    removeCard={removeCard} />
             </SessionArea></KambamBox>
     );
 }

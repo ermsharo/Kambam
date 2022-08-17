@@ -21,7 +21,7 @@ const CardsBox = styled.div`
 export default function Session({ title, cards, session, setCards }) {
 
 
-  if (!cards) return <div></div>
+  if (!cards[session]) return <div> Falaha ao carregar</div>
   return (<div>
     <SessionText>{title}</SessionText>
     <CardsBox>
