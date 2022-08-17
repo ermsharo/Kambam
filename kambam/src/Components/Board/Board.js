@@ -6,6 +6,7 @@ import { authenticate } from "../../Services/kambamServices";
 import { useState, useEffect } from "react";
 import api from "../../Services/api";
 import { GeneticData } from "./genericData";
+import NewCardSession from "../Session/NewCardSession";
 
 
 const SessionArea = styled.div`
@@ -23,6 +24,16 @@ padding-top: 32px;
 `
 
 const SessionBox = styled.div`
+
+`
+
+const AppTitle = styled.header`
+text-align: center;
+font-family: 'River', sans-serif;
+font-size: 42px;
+padding-top: 32px;
+color: white;
+
 
 `
 
@@ -66,7 +77,9 @@ export default function Board() {
     //deleteCardById()
     return (
         <KambamBox>
+            <AppTitle>Kambam</AppTitle>
             <SessionArea>
+                <NewCardSession/>
                 <Session title="To Do" session="ToDo" cards={Cards} setCards={setCards} />
                 <Session title="Doing" session="Doing" cards={Cards} setCards={setCards} />
                 <Session title="Done" session="Done" cards={Cards} setCards={setCards} />
