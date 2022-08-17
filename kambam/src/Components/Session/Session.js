@@ -17,11 +17,21 @@ const CardsBox = styled.div`
 
 
 
-export default function Session({ title, cards }) {
+export default function Session({ title, cards, session, setCards }) {
+  console.log("Cards", cards[session])
+
+  if (!cards) return <div></div>
   return (<div>
     <SessionText>{title}</SessionText>
     <CardsBox>
-      {cards.map((card) => <Card title={card.titulo} text={card.conteudo} />)}
+      {cards[session].map((card) => <Card
+        title={card.titulo}
+        text={card.conteudo}
+        cards={cards}
+        cardId={card.id}
+        setCards={setCards}
+        session={session}
+      />)}
     </CardsBox>
 
   </div>

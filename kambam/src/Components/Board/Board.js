@@ -52,18 +52,7 @@ export default function Board() {
 
 
 
-    const moveCardToSession = (originalsession, destinySession, cardId) => {
-        //Take a session as a parameter, and move the object to their
-    }
-
-    const deleteCardById = (session, cardId) => {
-        //Take a card id and delete
-        let List = Cards[session];
-        let ListWithoutElement = List.splice(List.findIndex(e => e.id === cardId), 1);
-        console.log("List" ,List)
-        console.log("List without elem", ListWithoutElement)
-
-    }
+  
 
     const findCardById = (cardId) => {
         //Take a card id and delete
@@ -78,9 +67,9 @@ export default function Board() {
     return (
         <KambamBox>
             <SessionArea>
-                <Session title="To Do" cards={Cards.ToDo} />
-                <Session title="Doing" cards={Cards.Doing} />
-                <Session title="Done" cards={Cards.Done} />
+                <Session title="To Do" session="ToDo" cards={Cards} setCards={setCards} />
+                <Session title="Doing" session="Doing" cards={Cards} setCards={setCards} />
+                <Session title="Done" session="Done" cards={Cards} setCards={setCards} />
             </SessionArea></KambamBox>
     );
 }

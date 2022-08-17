@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import { FiArrowLeftCircle , FiArrowRightCircle } from "react-icons/fi";
-import { HiPencilAlt,HiPlusCircle, HiOutlineTrash} from "react-icons/hi";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { HiPencilAlt, HiPlusCircle, HiOutlineTrash } from "react-icons/hi";
+import { moveCardToSession, verifyElement, deleteCardById } from "../../Utils/boardOps";
+
 
 const CardBox = styled.div`
   position: relative;
@@ -84,9 +86,10 @@ font-size: 24px;
 cursor: pointer;
 
 
+
 `;
 
-export default function Card({ title, text }) {
+export default function Card({ title, text, cards, cardId, setCards, session }) {
   //ESTADOS QUE ESSE CARD VAI TER
   //Modo
   //Titulo
@@ -95,16 +98,18 @@ export default function Card({ title, text }) {
   return (
     <CardBox>
       <CardHeader><CardTitle>{title}</CardTitle>
-        <CardEditBox><HiPencilAlt/></CardEditBox>
+        <CardEditBox><HiPencilAlt /></CardEditBox>
       </CardHeader>
 
       <CardText>{text}</CardText>
 
-<CardOptions>
-<CardIcons><FiArrowLeftCircle/></CardIcons>
-<CardIcons><HiOutlineTrash/></CardIcons>
-<CardIcons><FiArrowRightCircle/></CardIcons>
-</CardOptions>
+      <CardOptions>
+        <CardIcons><FiArrowLeftCircle /></CardIcons>
+        <CardIcons><HiOutlineTrash onClick={() => {
+          setCards(deleteCardById(cards, session, cardId))
+        }} /></CardIcons>
+        <CardIcons><FiArrowRightCircle /></CardIcons>
+      </CardOptions>
     </CardBox>
   );
 }
